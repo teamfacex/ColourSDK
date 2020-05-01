@@ -29,24 +29,68 @@ ColourSDK for Android
 #### Using [ AAR  (Android Archive)](https://developer.android.com/studio/projects/android-library)
 
 An **AAR file** contains a software library used for developing Android apps. It is structurally similar to an . APK **file** (Android Package), but it allows a developer to store a reusable component that can be used across multiple different apps. To integrate AAR  into your android project:
-- Purchase Active Liveness SDK license from [facex portal](https://search.facex.io).
+- Purchase SDK license from [facex portal](https://search.facex.io).
 - Download the `file.json` config file from the portal. Make sure file name is `file.json`.
 - Create `assets` directory in the android project ( if not already there) and copy the downloaded `file.json` to `assets` directory.
-- Download the latest `liveness.aar` release from [here](https://github.com/teamfacex/LivenessSDK-Android/releases/latest/download/colour.aar).
+- Download the latest `colour.aar` release from [here](https://github.com/teamfacex/LivenessSDK-Android/releases/latest/download/colour.aar).
 - Open android studio and add the liveness SDK to your android project
   - Click  `File > New > New Module`.
-  - Click `Import .JAR/.AAR Package` from repo directory then click `Next`.
+  - Click `Import .AAR Package` from repo directory then click `Next`.
   -  Enter the location of the `liveness.aar` file in the cloned directory then click `Finish`
 - Make sure the library is listed at the top of your `settings.gradle` file, as shown here for a library named "liveness":
-  -  `include ':app',  ':liveness'`
+  -  `include ':app',  ':colour'`
  - Open the app module's `build.gradle` file and add a new line to the `dependencies` block as shown in the following snippet:
-   - `dependencies { implementation project(":liveness")  }`
+   - `dependencies { implementation project(":colour")  }`
 
 #### Adding Dependencies
-* Add OpenCV
+
+- Add OpenCV Repository
+  -In build.gradle file for app module add `apply plugin: 'maven'`
+
+  -In build.gradle for project add in `allprojects { repositories {}}`
+```
+ maven {
+            url  "http://dl.bintray.com/steveliles/maven"
+}
+```  
+  
+* Add Following dependencies
+
+```
+    implementation 'org.opencv:OpenCV-Android:3.1.0'
+    implementation 'com.google.android.gms:play-services-vision:20.0.0'
+
+```
 
 
 ## 🐒 How to use
+- Make sure to iniialize OpenCV in Activity onResume
+#### Kotlin
+```
+override fun onResume() {
+super.onResume()
+  if (!OpenCVLoader.initDebug()) {
+    Log.e("Opencv", "Internal OpenCV library not found. Using OpenCV Manager for initialization");
+      OpenCVLoader.initDebug();
+  } else{
+      Log.e("Opencv", "OpenCV library found inside package. Using it!");
+  }
+}
+```
+#### Java
+```
+@Override
+protected void onResume() {
+  super.onResume();
+  if (!OpenCVLoader.initDebug()) {
+      Log.e("Opencv", "Internal OpenCV library not found. Using OpenCV Manager for initialization");
+      OpenCVLoader.initDebug();
+    } else {
+    Log.e("Opencv", "OpenCV library found inside package. Using it!");
+  }
+}
+```
+
 - Make sure to get the camera permission.
 ```
 if (ContextCompat.checkSelfPermission(
