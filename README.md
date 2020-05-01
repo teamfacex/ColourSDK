@@ -42,7 +42,7 @@ An **AAR file** contains a software library used for developing Android apps. It
  - Open the app module's `build.gradle` file and add a new line to the `dependencies` block as shown in the following snippet:
    - `dependencies { implementation project(":liveness")  }`
 
-#### Adding Dependecies
+#### Adding Dependencies
 * Add OpenCV
 
 
