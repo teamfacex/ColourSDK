@@ -32,7 +32,7 @@ An **AAR file** contains a software library used for developing Android apps. It
 - Purchase SDK license from [facex portal](https://search.facex.io).
 - Download the `file.json` config file from the portal. Make sure file name is `file.json`.
 - Create `assets` directory in the android project ( if not already there) and copy the downloaded `file.json` to `assets` directory.
-- Download the latest `colour.aar` release from [here](https://github.com/teamfacex/LivenessSDK-Android/releases/latest/download/colour.aar).
+- Download the latest `colour.aar` release from [here](https://github.com/teamfacex/ColourSDK/releases/latest/download/colour.aar).
 - Open android studio and add the liveness SDK to your android project
   - Click  `File > New > New Module`.
   - Click `Import .AAR Package` from repo directory then click `Next`.
