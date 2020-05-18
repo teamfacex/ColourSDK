@@ -156,7 +156,7 @@ private lateinit var liveness: Liveness
  override fun livenessError(errorMessage: String?) {   
 }  
 
-override fun livenessResponse(blinkDetected :int , smileScore :int , uniformDetected :int ,returnedFrame :Bitmap?, uniformFrame :Bitmap? ) {  
+override fun livenessResponse(blinkDetected :int , smileScore :float , uniformDetected :int ,returnedFrame :Bitmap?, uniformFrame :Bitmap? ) {  
  
 }
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -185,7 +185,7 @@ public class Mainactivity extends AppCompatActivity implements LivenessListenerC
   }
 
   @Override
-  public void livenessResponse(int blinkDetected, int smileScore,int uniformDetected,Bitmap returnedFrame, Bitmap uniformFrame){    
+  public void livenessResponse(int blinkDetected, int smileScore,float uniformDetected,Bitmap returnedFrame, Bitmap uniformFrame){    
     
   }
 
@@ -235,7 +235,7 @@ Kotlin
 override fun livenessError(errorMessage: String?) {
   }
   
- override fun livenessResponse(blinkDetected :int , smileScore :int , uniformDetected :int ,returnedFrame :Bitmap?, uniformFrame :Bitmap? ) {  
+ override fun livenessResponse(blinkDetected :int , smileScore :float , uniformDetected :int ,returnedFrame :Bitmap?, uniformFrame :Bitmap? ) {  
  
 }
 
@@ -246,7 +246,7 @@ Java
   }
 
   @Override
-  public void livenessResponse(int blinkDetected, int smileScore,int uniformDetected,Bitmap returnedFrame, Bitmap uniformFrame){    
+  public void livenessResponse(int blinkDetected, float smileScore,int uniformDetected,Bitmap returnedFrame, Bitmap uniformFrame){    
     
   }
 ```
