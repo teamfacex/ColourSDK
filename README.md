@@ -2,11 +2,15 @@
 
 [![Build Status](https://img.shields.io/badge/platform-android-green)](https://img.shields.io/badge/platform-android-green)
 [![Build Status](https://img.shields.io/badge/type-library-blue)](https://img.shields.io/badge/type-library-blue)
+[![Licence](https://img.shields.io/cocoapods/l/LivenessSDKOnline?color=red&logo=red)](https://img.shields.io/cocoapods/l/LivenessSDKOnline?color=red&logo=red)
 
 
 # ColourSDK
-ColourSDK for Android
+## 📜 Introduction
+Brought to you by FaceX.io, ColourSDK Android can now be used to integrate a simple Shirt ColourDetection along with Smile and Blink Detection into your Android applications
 
+## 📑 Index
+* [Documentation](#-documentation)
 * [Features](#-features)
 * [Installation](#-installation)
   * [AAR](#using--aar--android-archive)
@@ -18,6 +22,15 @@ ColourSDK for Android
   * [Steps](#steps)
   * [Thersholds](#-Thresholds)  
 * [Supported OS & SDK Versions](#-supported-os--sdk-versions)
+* [License](#-license)
+
+## 📚 Documentation 
+
+- Step 1: Login to your [FaceX User Portal](https://search.facex.io/#/login)
+- Step 2: Navigate to Mobile SDK Tab & Select [License History](https://search.facex.io/#/home/mobilesdk/license)
+- Step 3: Download the json file for Android SDK from the offline license Section
+- Step 4: Follow the intructions mentioned in this Github [LivenessSDKOffline](https://github.com/teamfacex/ColourSDK)
+- Step 5: Add the JSON file from the portal to your project.
 
 ## 🌟 Features
 - Supports Android 6.0+
@@ -32,7 +45,7 @@ An **AAR file** contains a software library used for developing Android apps. It
 - Purchase SDK license from [facex portal](https://search.facex.io).
 - Download the `file.json` config file from the portal. Make sure file name is `file.json`.
 - Create `assets` directory in the android project ( if not already there) and copy the downloaded `file.json` to `assets` directory.
-- Download the latest `colour.aar` release from [here](https://github.com/teamfacex/LivenessSDK-Android/releases/latest/download/colour.aar).
+- Download the latest `colour.aar` release from [here](https://github.com/teamfacex/ColourSDK/releases/latest/download/colour.aar).
 - Open android studio and add the liveness SDK to your android project
   - Click  `File > New > New Module`.
   - Click `Import .AAR Package` from repo directory then click `Next`.
@@ -263,8 +276,10 @@ You can set some properties for liveness.
 |**MAX_TIMER**|`Seconds`|`5 seconds`|
 
 
-
-
-### 📋 Supported OS & SDK Versions
+## 📋 Supported OS & SDK Versions
 * Android 6.0+
 * Java 8
+
+## 👮🏻 License
+
+- [EULA](https://github.com/teamfacex/ColourSDK/blob/master/LICENSE)
