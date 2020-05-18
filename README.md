@@ -64,7 +64,7 @@ An **AAR file** contains a software library used for developing Android apps. It
 
 
 ## 🐒 How to use
-- Make sure to iniialize OpenCV in Activity onResume
+- Make sure to initialize OpenCV in Activity onResume
 #### Kotlin
 ```
 override fun onResume() {
@@ -132,23 +132,24 @@ override fun onRequestPermissionsResult(requestCode: Int,
 #### Kotlin
 
 ``` 
-import io.facex.liveness.Liveness  
-import io.facex.liveness.LivenessListener
+import io.facex.colourlibrary.Liveness
+import io.facex.colourlibrary.LivenessListenerColour
+import org.opencv.android.OpenCVLoader
 
-class MainActivity : AppCompatActivity(),LivenessListener{
+class MainActivity : AppCompatActivity(), LivenessListenerColour{
    
 private lateinit var liveness: Liveness
 
- override fun livenessError(live: Boolean?, errorMessage: String?) {   
+ override fun livenessError(errorMessage: String?) {   
 }  
 
-override fun livenessSuccess(live: Boolean?,bitmap : Bitmap) {  
+override fun livenessResponse(blinkDetected :int , smileScore :int , uniformDetected :int ,returnedFrame :Bitmap?, uniformFrame :Bitmap? ) {  
  
 }
 override fun onCreate(savedInstanceState: Bundle?) {
 	liveness= Liveness(this, R.id.fragment_holder)
 	liveness.Eyes=true
-	liveness.Mouth=true
+	liveness.Smile=true
 	....
 	liveness.startLiveness()
   }
@@ -158,19 +159,20 @@ override fun onCreate(savedInstanceState: Bundle?) {
 #### Java
 
 ```
-import io.facex.liveness.Liveness  
-import io.facex.liveness.LivenessListener
+import io.facex.colourlibrary.Liveness
+import io.facex.colourlibrary.LivenessListenerColour
+import org.opencv.android.OpenCVLoader
 
-public class Mainactivity extends AppCompatActivity implements LivenessListener{
+public class Mainactivity extends AppCompatActivity implements LivenessListenerColour{
   private Liveness liveness;
 
   @Override
-  public void livenessError(Boolean live,String errorMessage){
+  public void livenessError(String errorMessage){
 
   }
 
   @Override
-  public void livenessSuccess(Boolean live,Bitmap bitmap){    
+  public void livenessResponse(int blinkDetected, int smileScore,int uniformDetected,Bitmap returnedFrame, Bitmap uniformFrame){    
     
   }
 
@@ -180,7 +182,7 @@ public class Mainactivity extends AppCompatActivity implements LivenessListener{
       setContentView(R.layout.activity_main);
       liveness= new Liveness(this, R.id.fragment_holder);
 	    liveness.Eyes=true;
-	    liveness.Mouth=true;
+	    liveness.Smile=true;
 	    ....
 	    liveness.startLiveness();
    }
@@ -212,25 +214,26 @@ eg: fragment_holder
 
 ## Interfaces
 
-#### LivenessListener 
+#### LivenessListenerColour
 
 ```
 Kotlin
 
-override fun livenessSuccess(live: Boolean?,bitmap : Bitmap) {
+override fun livenessError(errorMessage: String?) {
   }
   
- override fun livenessError(live: Boolean?, errorMessage: String?) {
-  }
+ override fun livenessResponse(blinkDetected :int , smileScore :int , uniformDetected :int ,returnedFrame :Bitmap?, uniformFrame :Bitmap? ) {  
+ 
+}
 
 Java
   @Override
-  public void livenessError(Boolean live,String errorMessage){
+  public void livenessError(String errorMessage){
 
   }
 
   @Override
-  public void livenessSuccess(Boolean live,Bitmap bitmap){    
+  public void livenessResponse(int blinkDetected, int smileScore,int uniformDetected,Bitmap returnedFrame, Bitmap uniformFrame){    
     
   }
 ```
@@ -244,19 +247,20 @@ You can set some properties for liveness.
 |Steps|Value|Default| 
 |-------|-------|-------| 
 |**Eyes**|`Boolean`|`true`| 
-|**Mouth** |`Boolean`|`true`| 
-|**Yaw**|`Boolean`|`true`| 
-|**Random** |`Boolean`|`true`| 
+|**Smile** |`Boolean`|`true`| 
+|**Colour**|`Boolean`|`true`| 
+|**SVD** |`Boolean`|`false`| 
 
 
 #### Thresholds
 
 |Property|Values|Default| 
 |-------|-------|-------| 
-|**EYE_THRESHOLD**|`0.0 ... 6.0`|`2.6`| 
-|**MOUTH_THRESHOLD**|`2.0 ... 9.0`|`6.0`| 
-|**TIMER**|`Seconds`|`5 seconds`| 
-|**MAX_TIMER**|`Seconds`|`15 seconds`|
+|**LOWER_H**|`Integer`|`170`|
+|**LOWER_S**|`Integer`|``100`|
+|**UPPER_H**|`Integer`|`180`|
+|**UPPER_a**|`Integer`|`255`|
+|**MAX_TIMER**|`Seconds`|`5 seconds`|
 
 
 
