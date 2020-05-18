@@ -29,7 +29,7 @@ Brought to you by FaceX.io, ColourSDK Android can now be used to integrate a sim
 - Step 1: Login to your [FaceX User Portal](https://search.facex.io/#/login)
 - Step 2: Navigate to Mobile SDK Tab & Select [License History](https://search.facex.io/#/home/mobilesdk/license)
 - Step 3: Download the json file for Android SDK from the offline license Section
-- Step 4: Follow the intructions mentioned in this Github [LivenessSDKOffline](https://github.com/teamfacex/ColourSDK)
+- Step 4: Follow the intructions mentioned in this Github [ColourSDK](https://github.com/teamfacex/ColourSDK)
 - Step 5: Add the JSON file from the portal to your project.
 
 ## 🌟 Features
