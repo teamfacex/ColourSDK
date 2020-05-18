@@ -270,7 +270,7 @@ You can set some properties for liveness.
 |Property|Values|Default| 
 |-------|-------|-------| 
 |**LOWER_H**|`Integer`|`170`|
-|**LOWER_S**|`Integer`|``100`|
+|**LOWER_S**|`Integer`|`100`|
 |**UPPER_H**|`Integer`|`180`|
 |**UPPER_a**|`Integer`|`255`|
 |**MAX_TIMER**|`Seconds`|`5 seconds`|
